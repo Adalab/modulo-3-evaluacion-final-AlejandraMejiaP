@@ -1,8 +1,8 @@
 import EachCharacter from "./EachCharacter";
 
 const CharacterList = (props) => {
-  const htmlCharacterList = props.charactersData.map((character,index) => (
-    <EachCharacter key={index} charactersData={character} characterImg={props.characterImg}/>
+  const htmlCharacterList = props.charactersData.map((character, index) => (
+    <EachCharacter key={index} charactersData={character} />
   ));
 
 
