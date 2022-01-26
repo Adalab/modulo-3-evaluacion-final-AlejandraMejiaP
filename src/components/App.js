@@ -36,9 +36,7 @@ function App() {
     return character.name.toLowerCase().includes(filterName.toLowerCase());
   });
 
-  const handlerSubmit = (ev) => {
-    ev.preventDefault();
-  };
+ 
   // Route:
 
   const routeData = useRouteMatch("/character-detail/:characterId");
@@ -50,10 +48,11 @@ function App() {
   return (
     <>
       <Header />
+      <main className="main__container">
       <Switch>
         <Route exact path="/">
           <Filters
-            handlerSubmit={handlerSubmit}
+            
             handleFilter={handleFilter}
             filterName={filterName}
             filterHouse={filterHouse}
@@ -64,6 +63,7 @@ function App() {
           <CharacterDetails characterDetails={characterDetails} />
         </Route>
       </Switch>
+      </main>
     </>
   );
 }

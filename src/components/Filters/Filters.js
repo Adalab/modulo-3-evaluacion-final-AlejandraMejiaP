@@ -3,7 +3,8 @@ import FilterHouse from './FilterHouse';
 
 
 const Filters = (props) => {
-return <section className='section'>
+return <section className="section">
+<h3 className='section__title'>Filtrar:</h3>
 <form onSubmit={(ev)=>ev.preventDefault()} className="section__filter" action="">
 
 <FilterName handleFilter={props.handleFilter} filterName={props.filterName}/>

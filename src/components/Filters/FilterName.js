@@ -9,8 +9,8 @@ const handleInputName = (ev) => {
 
     return (
 <>
-<label htmlFor="">Buscar por nombre:</label>
-<input type="text" name="name" id="name" value={props.FilterName} onKeyUp={handleInputName} />
+<label className="filter__label" htmlFor="">Por nombre:</label>
+<input className="filter__input" type="text" name="name" id="name" value={props.FilterName} onKeyUp={handleInputName} />
 </>)
 };
 

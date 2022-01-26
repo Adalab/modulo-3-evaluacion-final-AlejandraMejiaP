@@ -1,8 +1,6 @@
 
 const apiUrl = "http://hp-api.herokuapp.com/api/characters/house/";
 
-
-
 const callToApi = (filterHouse) => {
 // selectedHouse = filterHouseSelector.value;  
   // Llamamos al API
@@ -17,6 +15,8 @@ const callToApi = (filterHouse) => {
         alive: character.alive,
         gender: character.gender,
         species: character.species,
+        ancestry: character.ancestry,
+        house: character.house
       };
     });
     return cleanData;

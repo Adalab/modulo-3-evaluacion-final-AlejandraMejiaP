@@ -1,59 +1,158 @@
 body {
   background-image: url("../images/cloud_background.gif.crdownload");
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  background-attachment:fixed;
+  background-attachment: fixed;
   background-color: #cccccc;
   height: 100vh;
-  font-family: "Crimson Text", Georgia;
+  font-family: "Crimson Text";
   color: whitesmoke;
 }
 ul {
-    list-style: none;
+  list-style: none;
+}
+a {
+  color: rgb(0, 15, 0);
+  text-decoration: none;
+  &:hover {
+    color: rgb(175, 248, 157);
+  }
 }
 .header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: rgb(162, 117, 34);
-    
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgb(181, 211, 173);
 }
 .header__title {
-   font-size: 60px;
-    font-family: "Harry Potter", sans-serif;
-    margin-bottom: 0px;
-    -webkit-text-stroke: 1.5px rgb(0, 0, 0);
+  font-size: 60px;
+  font-family: "Harry Potter", sans-serif;
+  margin-bottom: 0px;
+  -webkit-text-stroke: 1.5px rgb(0, 0, 0);
+  background: linear-gradient(rgb(170, 180, 166), rgb(15, 15, 15));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .header__subtitle {
-    
-    margin-top: 0px;
+  margin-top: 0px;
 }
 
 .main {
-    &__container {
-        display: flex;
-        height: 500px;
-        justify-content: center;
-        width: 100%;
-        flex-wrap: wrap;
-        &--element {
-            width: 300px;
-            height: 300px;
-        }
+  &__container {
+    display: flex;
+    justify-content: center;
+  }
+  &__section {
+    &--container {
+      display: flex;
+      height: 500px;
+      justify-content: center;
+      width: 100%;
+      flex-wrap: wrap;
+      &--element {
+        width: 300px;
+        height: 300px;
+      }
     }
-    &__image {
-        height: 200px;
-        width: 150px;
+    &--element {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
+    &--name {
+      color: rgb(210, 233, 210);
+      font-size: 20px;
+      padding: 5px;
+    }
+    &--image {
+      height: 200px;
+      width: 150px;
+      border-radius: 8px;
+      border: 2px solid rgb(95, 94, 94);
+    }
+  }
 }
 .section {
-    &__filter {
-        display: flex;
-        flex-direction: column;
-        width: 200px;
-        justify-content: center;
+  background: linear-gradient(
+    rgba(108, 110, 105, 0.795),
+    rgba(15, 15, 15, 0.808)
+  );
+  border-radius: 12px;
+  padding: 8px;
+  margin-left: 12px;
+  &__title {
+      padding: 8px;
+      margin: 0px;
+  }
+  &__filter {
+    display: flex;
+    flex-direction: column;
+    width: 160px;
+    justify-content: center;
+  }
+}
+.filter {
+  &__label {
+    font-size: 14px;
+    padding: 8px;
+  }
+  &__input {
+    font-size: 12px;
+    background:darkgrey ;
+    border-radius: 6px;
+    border: 1px solid darkgrey;
+    width: 130px;
+  }
+  &__select {
+    font-size: 13px;
+    height: 28px;
+    width: 100px;
+    background:darkgrey ;
+    border-radius: 6px;
+    border: 1px solid darkgrey;
+  }
+}
+
+.details {
+  display: flex;
+  background: linear-gradient(rgba(108, 110, 105, 0.76), rgba(0, 0, 0, 0.534));
+  border-radius: 12px;
+  width: 600px;
+  &__img {
+    margin: 30px;
+    width: 200px;
+    height: 280px;
+    border-radius: 12px;
+    border: 3px solid rgb(95, 94, 94);
+  }
+  &__list {
+    font-size: 20px;
+    color: rgb(253, 255, 253);
+    &--name {
+      font-size: 35px;
+      margin-top: 20px;
+      margin-bottom: 50px;
+      text-align: center;
+      color: rgb(15, 15, 15);
     }
+    &--div {
+      display: flex;
+      justify-content: center;
+    }
+    &--emblem {
+      margin-top: 20px;
+      width: 120px;
+      height: 100px;
+    }
+  }
+}
+.fa-heartbeat {
+  color: rgb(235, 43, 52);
+}
+
+.backLink {
+  color: rgb(52, 88, 52);
 }

@@ -1,25 +1,68 @@
 import { Link } from "react-router-dom";
-import defaultImg from "../images/default_image.jpg"
+import defaultImg from "../images/default_image.jpg";
 
-function CharacterDetails (props) {
-  
+// Emblems
+
+import GryffindorEmblem from "../images/Gryffindor-Logo.png";
+import RavenclawEmblem from "../images/ravenclaw__logo.png";
+import SlytherinEmblem from "../images/slytherin_logo.png";
+import HufflepuffEmblem from "../images/hufflepuff__logo.png";
+
+
+function CharacterDetails(props) {
   return (
-    <div>
-      <ul>
-        <li>{props.characterDetails?.name}</li>
-         <li>
-          <img
-            className="character__img"
-            src={props.characterDetails.image ? props.characterDetails.image : defaultImg } alt={props.characterDetails.name} />
+    <div className="details">
+      <div>
+        
+        <img
+          className="details__img"
+          src={
+            props.characterDetails.image
+              ? props.characterDetails.image
+              : defaultImg
+          }
+          alt={props.characterDetails.name}
+        />
+      </div>
+      <ul className="details__list">
+        <li className="details__list--name">
+          {props.characterDetails?.name}
         </li>
-        <li>Género: {props.characterDetails.gender}</li>
-        <li>Especie: {props.characterDetails.species === "human" ? "humano" : props.characterDetails.species === "half-giant" ? "Semigigante" : props.characterDetails.species ==="werewolf" ? "hombre lobo" : props.characterDetails.species === "ghost" ? "Fantasma" : "No definido" }</li>
-        <li>Estado: {props.characterDetails.alive ? `Está vivo` : `Está muerto`}</li> 
+        <li className="details__list--element">
+          Género:{" "}
+          {props.characterDetails.gender === "female"
+            ? "Femenino"
+            : props.characterDetails.gender === "male"
+            ? "Masculino"
+            : ""}
+        </li>
+        <li className="details__list--element">
+          Especie:{" "}
+          {props.characterDetails.species === "human"
+            ? "Humana/o"
+            : props.characterDetails.species === "half-giant"
+            ? "Semigigante"
+            : props.characterDetails.species === "werewolf"
+            ? "hombre lobo"
+            : props.characterDetails.species === "ghost"
+            ? "Fantasma"
+            : "No definido"}
+        </li>
+        <li>Ascendencia: {props.characterDetails.ancestry === "half-blood" ? "Mestiza" : props.characterDetails.ancestry === "muggleborn" ? "Hija/o de muggles" : props.characterDetails.ancestry === "pure-blood" ? "Sangre pura" : "Desconocida" }</li>
+        <li className="details__list--element">
+          Estado:{" "}
+          {props.characterDetails.alive ? `Está viva/o` : `Está muerta/o`} <i className="fas fa-heartbeat"></i>
+        </li>
+        <li>
+          <div  className="details__list--div">
+          <img className="details__list--emblem" src={props.characterDetails.house === "Gryffindor" ? GryffindorEmblem : props.characterDetails.house === "Slytherin" ? SlytherinEmblem : props.characterDetails.house === "Ravenclaw" ? RavenclawEmblem : props.characterDetails.house === "Hufflepuff" ? HufflepuffEmblem : "" } alt="Emblema de su casa" title="Emblema de su casa" /></div>
+        </li>
+        <li><Link className="backLink" to="/">
+          <i className="fas fa-arrow-left"></i> Volver
+        </Link></li>
       </ul>
-      <Link to="/">
-        <i className="fas fa-arrow-left"></i> Back
-      </Link>
-    </div>);
-};
+    </div>
+  );
+}
 
 export default CharacterDetails;
