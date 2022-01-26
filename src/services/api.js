@@ -1,8 +1,12 @@
-const callToApi = () => {
+
+const apiUrl = "http://hp-api.herokuapp.com/api/characters/house/";
+
+
+
+const callToApi = (filterHouse) => {
+// selectedHouse = filterHouseSelector.value;  
   // Llamamos al API
-  return fetch(
-  "http://hp-api.herokuapp.com/api/characters/house/gryffindor"
-  )
+  return fetch(apiUrl + filterHouse)  
   .then((response) => response.json())
   .then((dataFromApi) => {
     const cleanData = dataFromApi.map((character) => {
@@ -10,7 +14,7 @@ const callToApi = () => {
         id: `${character.name} ${character.species}`,
         name: character.name,
         image: character.image,
-        status: character.status,
+        alive: character.alive,
         gender: character.gender,
         species: character.species,
       };
