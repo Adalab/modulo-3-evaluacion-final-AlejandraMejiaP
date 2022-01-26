@@ -19,6 +19,13 @@ a {
     color: rgb(175, 248, 157);
   }
 }
+
+.fa-sort-alpha-down {
+    color: rgb(153, 160, 153); 
+    &:hover {
+        color: rgb(175, 248, 157);
+      }
+}
 .header {
   display: flex;
   flex-direction: column;
@@ -55,6 +62,7 @@ a {
         width: 300px;
         height: 300px;
       }
+      
     }
     &--element {
       display: flex;
@@ -73,6 +81,10 @@ a {
       border-radius: 8px;
       border: 2px solid rgb(95, 94, 94);
     }
+    &--list {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
   }
 }
 .section {
@@ -83,6 +95,7 @@ a {
   border-radius: 12px;
   padding: 8px;
   margin-left: 12px;
+  height: 280px;
   &__title {
       padding: 8px;
       margin: 0px;
@@ -113,6 +126,7 @@ a {
     background:darkgrey ;
     border-radius: 6px;
     border: 1px solid darkgrey;
+    margin-bottom: 12px;
   }
 }
 

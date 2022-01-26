@@ -14,8 +14,6 @@ function App() {
   const [filterName, setFilterName] = useState("");
   const [filterHouse, setFilterHouse] = useState("Gryffindor");
   
-
-
   useEffect(() => {
     callToApi(filterHouse).then((characterApiData) => {
       setCharactersData(characterApiData);
@@ -32,10 +30,18 @@ function App() {
     }
   };
 
+ 
+
+
+
   const filteredCharacters = charactersData.filter((character) => {
     return character.name.toLowerCase().includes(filterName.toLowerCase());
   });
 
+  // const handleSort = () => {
+  //   return filteredCharacters.map((character) =>
+  //   character.name.sort());
+  // }
  
   // Route:
 
@@ -52,10 +58,10 @@ function App() {
       <Switch>
         <Route exact path="/">
           <Filters
-            
             handleFilter={handleFilter}
             filterName={filterName}
             filterHouse={filterHouse}
+            // handleSort={handleSort}
           />
           <CharacterList charactersData={filteredCharacters} />
         </Route>

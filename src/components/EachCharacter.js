@@ -13,7 +13,7 @@ function EachCharacter (props) {
         </li>
         
         <li className="main__section--list">{props.charactersData.species === "human" ? "Humano/a" : props.charactersData.species === "half-giant" ? "Semigigante" : props.charactersData.species ==="werewolf" ? "Hombre lobo" : props.charactersData.species === "ghost" ? "Fantasma" : "No definido" }</li>
-        <Link to={`/character-detail/${props.charactersData.id}`}><li><i class="fas fa-magic"></i> Más info</li></Link>
+        <Link to={`/character-detail/${props.charactersData.id}`}><li><i className="fas fa-magic"></i> Más info</li></Link>
       </ul>  
   );
 };
