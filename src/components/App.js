@@ -23,7 +23,7 @@ function App() {
     ls.get("filterGender", "Todos")
   );
   const [sortCharacterList, setSortCharacterList] = useState(
-    ls.get("sortCharacterList", "")
+    ls.get("sortCharacterList", false)
   );
 
   useEffect(() => {
@@ -69,20 +69,23 @@ function App() {
     return character.gender === filterGender;
   }
   });
+
+  if (sortCharacterList) {
+    filterData = charactersData.sort((a, b) =>
+    a.name > b.name ? 1 : a.name < b.name ? -1 : 0
+  );
+  } 
  
   
   const handleSort = (data) => {
-    setSortCharacterList(data);
-    filterData = charactersData.sort((a, b) =>
-      a.name > b.name ? 1 : a.name < b.name ? -1 : 0
-    );
- 
-  };
+    setSortCharacterList(true);  
+    };
 
   const handleReset = () => {
     setFilterHouse("Gryffindor");
     setFilterName("");
     setFilterGender("Todos");
+    setSortCharacterList(false)
     };
 
   // Route:
