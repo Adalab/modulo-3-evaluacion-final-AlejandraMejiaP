@@ -14,9 +14,16 @@ function App() {
   const [charactersData, setCharactersData] = useState(
     ls.get("charactersData", [])
   );
+  
   const [filterName, setFilterName] = useState(ls.get("filterName", ""));
   const [filterHouse, setFilterHouse] = useState(
     ls.get("filterHouse", "Gryffindor")
+  );
+  const [filterGender, setFilterGender] = useState(
+    ls.get("filterGender", "Todos")
+  );
+  const [sortCharacterList, setSortCharacterList] = useState(
+    ls.get("sortCharacterList", "")
   );
 
   useEffect(() => {
@@ -29,7 +36,16 @@ function App() {
     ls.set("charactersData", charactersData);
     ls.set("filterName", filterName);
     ls.set("filterHouse", filterHouse);
-  }, [charactersData, filterName, filterHouse]);
+    ls.set("filterGender", filterGender);
+    
+    
+  }, [
+    charactersData,
+    filterName,
+    filterHouse,
+    filterGender,
+    
+  ]);
 
   //Filters:
 
@@ -38,22 +54,37 @@ function App() {
       setFilterName(data.value);
     } else if (data.key === "house") {
       setFilterHouse(data.value);
+    } else if (data.key === "gender") {
+      setFilterGender(data.value);
     }
+  };
+
+  const filterData = charactersData
+.filter((character) => {
+  return character.name.toLowerCase().includes(filterName.toLowerCase());
+})
+.filter((character) => {
+  if (filterGender === "Todos") {
+    return true;
+  } else {
+    return character.gender === filterGender;
+  }
+  });
+ 
+  
+  const handleSort = (data) => {
+    setSortCharacterList(data);
+    filterData.sort((a, b) =>
+      a.name > b.name ? 1 : a.name < b.name ? -1 : 0
+    );
+ 
   };
 
   const handleReset = () => {
     setFilterHouse("Gryffindor");
     setFilterName("");
-  };
-
-  const filteredCharacters = charactersData.filter((character) => {
-    return character.name.toLowerCase().includes(filterName.toLowerCase());
-  });
-
-  // const handleSort = () => {
-  //   return filteredCharacters.map((character) =>
-  //   character.name.sort());
-  // }
+    setFilterGender("Todos");
+    };
 
   // Route:
 
@@ -74,9 +105,10 @@ function App() {
               handleFilter={handleFilter}
               filterName={filterName}
               filterHouse={filterHouse}
-              // handleSort={handleSort}
+              filterGender={filterGender}
+              handleSort={handleSort}
             />
-            <CharacterList charactersData={filteredCharacters} />
+            <CharacterList charactersData={filterData} />
           </Route>
           <Route exact path="/character-detail/:characterId">
             <CharacterDetails characterDetails={characterDetails} />
