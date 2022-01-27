@@ -36,8 +36,7 @@ function App() {
     ls.set("charactersData", charactersData);
     ls.set("filterName", filterName);
     ls.set("filterHouse", filterHouse);
-    ls.set("filterGender", filterGender);
-    
+    ls.set("filterGender", filterGender);   
     
   }, [
     charactersData,
@@ -59,7 +58,7 @@ function App() {
     }
   };
 
-  const filterData = charactersData
+  let filterData = charactersData
 .filter((character) => {
   return character.name.toLowerCase().includes(filterName.toLowerCase());
 })
@@ -74,7 +73,7 @@ function App() {
   
   const handleSort = (data) => {
     setSortCharacterList(data);
-    filterData.sort((a, b) =>
+    filterData = charactersData.sort((a, b) =>
       a.name > b.name ? 1 : a.name < b.name ? -1 : 0
     );
  

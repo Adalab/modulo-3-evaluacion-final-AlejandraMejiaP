@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+  }
+  body {
+    background-image: url("../../images/cloud_background.gif.crdownload");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: #cccccc;
+    height: 100vh;
+    font-family: "Markazi Text", serif;
+    font-size: 20px;
+    color: rgb(210, 233, 210);
+  }
+  ul {
+    list-style: none;
+  }
+  a {
+    color: rgb(0, 15, 0);
+    text-decoration: none;
+    &:hover {
+      color: rgb(175, 248, 157);
+    }
+  }

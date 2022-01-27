@@ -58,7 +58,7 @@ function CharacterDetails(props) {
           <img className="details__list--emblem" src={props.characterDetails.house === "Gryffindor" ? GryffindorEmblem : props.characterDetails.house === "Slytherin" ? SlytherinEmblem : props.characterDetails.house === "Ravenclaw" ? RavenclawEmblem : props.characterDetails.house === "Hufflepuff" ? HufflepuffEmblem : "" } alt="Emblema de su casa" title="Emblema de su casa" /></div>
         </li>
         <li><Link className="backLink" to="/">
-          <i className="fas fa-arrow-left"></i> Volver
+        <i className="fas fa-quidditch"></i> Volver
         </Link></li>
       </ul>
     </div>

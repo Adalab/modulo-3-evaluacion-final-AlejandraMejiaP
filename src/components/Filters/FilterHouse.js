@@ -8,8 +8,15 @@ function FilterHouse(props) {
 
   return (
     <>
-      <label className="filter__label" htmlFor="">Por casa:</label>
-      <select className="filter__select" name="house" id="house" onChange={handleInputHouse} value={props.filterHouse}>
+      <label className="filter__label" htmlFor="">
+        Por casa:
+      </label>
+      <select
+        className="filter__select"
+        name="house"
+        id="house"
+        onChange={handleInputHouse}
+        value={props.filterHouse}      >
         <option value="Gryffindor">Gryffindor</option>
         <option value="Ravenclaw">Ravenclaw</option>
         <option value="Slytherin">Slytherin</option>

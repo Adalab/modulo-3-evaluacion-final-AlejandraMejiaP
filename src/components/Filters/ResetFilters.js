@@ -3,7 +3,7 @@ function ResetFilters (props) {
         props.handleReset(ev.currentTarget);
     }
     return (
-        <button onClick={handleResetFilters} >Borrar todos los filtros</button>
+        <button className="rest__button" onClick={handleResetFilters} >Borrar todos los filtros</button>
     )
 }
 

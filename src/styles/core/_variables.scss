@@ -1,0 +1,13 @@
+// how to use: @include tablet { tablet styles here }
+@mixin tablet {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+// how to use: @include desktop { desktop styles here }
+@mixin desktop {
+    @media (min-width: 1024px) {
+        @content;
+    }
+}

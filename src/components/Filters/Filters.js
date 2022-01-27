@@ -19,7 +19,7 @@ return (<section className="section">
 
 <FilterName handleFilter={props.handleFilter} filterName={props.filterName}/>
 <FilterHouse   handleFilter={props.handleFilter} Filterhouse={props.filterHouse} /><FilterGender handleFilter={props.handleFilter}/>
-<button onClick={handleOrderList}><i className="fas fa-sort-alpha-down" ></i></button>
+<button className='section__filter--button' onClick={handleOrderList}><i className="fas fa-sort-alpha-down" ></i></button>
 <ResetFilters handleReset={props.handleReset}/>
 </form>
 </section>

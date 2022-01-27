@@ -11,7 +11,7 @@ function FilterGender(props) {
         <label className="filter__label" htmlFor="">Por sexo:</label>
         <select className="filter__select" name="gender" id="gender" onChange={handleInputGender} value={props.filterGender}>
           
-        <option value="Todos">Todos</option>
+        <option  value="">Todos</option>
           <option value="female">Mujer</option>
           <option value="male">Hombre</option>
                     
