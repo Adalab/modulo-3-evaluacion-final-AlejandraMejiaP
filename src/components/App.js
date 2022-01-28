@@ -14,7 +14,7 @@ function App() {
   const [charactersData, setCharactersData] = useState(
     ls.get("charactersData", [])
   );
-  
+
   const [filterName, setFilterName] = useState(ls.get("filterName", ""));
   const [filterHouse, setFilterHouse] = useState(
     ls.get("filterHouse", "Gryffindor")
@@ -22,6 +22,8 @@ function App() {
   const [filterGender, setFilterGender] = useState(
     ls.get("filterGender", "Todos")
   );
+  const [filterStudent, setFilterStudent] = useState(false);
+
   const [sortCharacterList, setSortCharacterList] = useState(
     ls.get("sortCharacterList", false)
   );
@@ -36,15 +38,8 @@ function App() {
     ls.set("charactersData", charactersData);
     ls.set("filterName", filterName);
     ls.set("filterHouse", filterHouse);
-    ls.set("filterGender", filterGender);   
-    
-  }, [
-    charactersData,
-    filterName,
-    filterHouse,
-    filterGender,
-    
-  ]);
+    ls.set("filterGender", filterGender);
+  }, [charactersData, filterName, filterHouse, filterGender]);
 
   //Filters:
 
@@ -55,38 +50,46 @@ function App() {
       setFilterHouse(data.value);
     } else if (data.key === "gender") {
       setFilterGender(data.value);
+    } else if (data.key === "student") {
+      setFilterStudent(data.value);
     }
   };
 
   let filterData = charactersData
-.filter((character) => {
-  return character.name.toLowerCase().includes(filterName.toLowerCase());
-})
-.filter((character) => {
-  if (filterGender === "Todos") {
-    return true;
-  } else {
-    return character.gender === filterGender;
-  }
-  });
+    .filter((character) => {
+      return character.name.toLowerCase().includes(filterName.toLowerCase());
+    })
+    .filter((character) => {
+      if (filterGender === "Todos") {
+        return true;
+      } else {
+        return character.gender === filterGender;
+      }
+    })
+    .filter((character) => {
+      if (filterStudent) {
+        return character.hogwartsStudent === filterStudent;
+      } else {
+        return true;
+      }
+    })
+    .sort((a, b) => {
+      if (sortCharacterList) {
+        return a.name > b.name ? 1 : a.name < b.name ? -1 : 0;
+      }
+    });
 
-  if (sortCharacterList) {
-    filterData = charactersData.sort((a, b) =>
-    a.name > b.name ? 1 : a.name < b.name ? -1 : 0
-  );
-  } 
- 
   
   const handleSort = (data) => {
-    setSortCharacterList(true);  
-    };
+    setSortCharacterList(true);
+  };
 
   const handleReset = () => {
     setFilterHouse("Gryffindor");
     setFilterName("");
     setFilterGender("Todos");
-    setSortCharacterList(false)
-    };
+    setSortCharacterList(false);
+  };
 
   // Route:
 

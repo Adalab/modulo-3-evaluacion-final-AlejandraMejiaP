@@ -16,7 +16,8 @@ const callToApi = (filterHouse) => {
         gender: character.gender,
         species: character.species,
         ancestry: character.ancestry,
-        house: character.house
+        house: character.house,
+        hogwartsStudent: character.hogwartsStudent
       };
     });
     return cleanData;
