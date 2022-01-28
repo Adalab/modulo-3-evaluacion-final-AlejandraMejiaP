@@ -9,7 +9,7 @@ const handleInputName = (ev) => {
 
     return (
 <>
-<label className="filter__label" htmlFor="">Por nombre:</label>
+<label className="filter__label" htmlFor="">Nombre:</label>
 <input className="filter__input" type="text" name="name" id="name" value={props.filterName}  onChange={handleInputName} placeholder="Harry P..." />
 </>)
 };

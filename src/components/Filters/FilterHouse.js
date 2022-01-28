@@ -9,7 +9,7 @@ function FilterHouse(props) {
   return (
     <>
       <label className="filter__label" htmlFor="">
-        Por casa:
+       Casa:
       </label>
       <select
         className="filter__select"

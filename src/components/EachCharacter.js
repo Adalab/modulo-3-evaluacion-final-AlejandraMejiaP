@@ -1,6 +1,5 @@
 import {Link} from "react-router-dom";
-import defaultImg from "../images/default_image.jpg"
-
+import defaultImg from "../images/defaultIMG.jpg"
 function EachCharacter (props) {
   
 
