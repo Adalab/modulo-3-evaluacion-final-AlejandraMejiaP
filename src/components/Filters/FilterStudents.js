@@ -7,9 +7,7 @@ function FilterStudents(props) {
   };
   return <>
     <label className="filter__label" htmlFor="">
-      Solo estudiantes:
-    </label>
-    <input
+      Solo estudiantes <input
       type="checkbox"
       name="students"
       id="students"
@@ -17,6 +15,8 @@ function FilterStudents(props) {
       onChange={handleCheckStudent}
       checked={props.filterStudents}
     />
+    </label>
+    
   </>;
 }
 export default FilterStudents;

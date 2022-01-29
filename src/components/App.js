@@ -76,6 +76,8 @@ function App() {
     .sort((a, b) => {
     if (sortCharacterList) {
         return a.name > b.name ? 1 : a.name < b.name ? -1 : 0;
+      } else {
+        return true
       }
     });
 
