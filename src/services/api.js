@@ -1,5 +1,5 @@
 
-const apiUrl = "http://hp-api.herokuapp.com/api/characters/house/";
+const apiUrl = "https://hp-api.herokuapp.com/api/characters/house/";
 
 const callToApi = (filterHouse) => {
 // selectedHouse = filterHouseSelector.value;  
